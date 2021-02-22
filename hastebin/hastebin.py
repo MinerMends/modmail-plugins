@@ -22,7 +22,6 @@ class HastebinCog(commands.Cog):
             ) as resp:
                 key = (await resp.json())["key"]
                 embed = Embed(
-                    title="Your uploaded file",
                     color=self.bot.main_color,
                     description=f"{haste_url}/" + key,
                 )
