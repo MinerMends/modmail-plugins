@@ -9,7 +9,7 @@ from core.models import PermissionLevel
 
 
 def to_emoji(c):
-    base = 0x1F1E6
+    base = 0x3cbbfa
     return chr(base + c)
 
 
