@@ -135,16 +135,15 @@ class GiveawayPlugin(commands.Cog):
                         for winner in winners:
                             winners_text += f"<@{winner}> "
 
-                        embed.description = f"Giveaway has ended!\n\n**{'Winners' if giveaway['winners'] > 1 else 'Winner'}:** {winners_text} "
+                        embed.description = f"**#MendingArmy** | Giveaway Ended\n\n**{'Winners' if giveaway['winners'] > 1 else 'Winner'}:** {winners_text} "
                         embed.set_footer(
                             text=f"{giveaway['winners']} {'winners' if giveaway['winners'] > 1 else 'winner'} | "
                             f"Ended at"
                         )
                         await message.edit(embed=embed)
-                        embed3.title = f"Winners"
-                        embed3.description = f"{winners_text}"
-                        embed3.add_Field(name='Prize:',value=f"**{giveaway['item']}**")
-                        await channel.send(embed=embed3)
+                        await channel.send(
+                            f"**#MendingArmy**: Congratulations {winners_text}, you just won **{giveaway['item']}**!"
+                        )
                         try:
                             self.active_giveaways.pop(str(giveaway["message"]))
                             await self._update_db()
@@ -162,7 +161,7 @@ class GiveawayPlugin(commands.Cog):
 
                 embed = message.embeds[0]
                 embed.description = (
-                    f"**#MendingArmy** | React to enter!\n"
+                    f"**#MendingArmy** | React to enter\n"
                     f"Ending: **{time_remaining}**"
                 )
                 await message.edit(embed=embed)
