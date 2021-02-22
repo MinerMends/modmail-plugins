@@ -142,7 +142,7 @@ class GiveawayPlugin(commands.Cog):
                         )
                         await message.edit(embed=embed)
                         await channel.send(
-                            f"🎉 Congratulations {winners_text}, you have won **{giveaway['item']}**!"
+                            f"**#MendingArmy**: Congrats {winners_text}, you just won **{giveaway['item']}**!"
                         )
                         try:
                             self.active_giveaways.pop(str(giveaway["message"]))
@@ -161,7 +161,7 @@ class GiveawayPlugin(commands.Cog):
 
                 embed = message.embeds[0]
                 embed.description = (
-                    f"React with 🎉 to enter the giveaway!\n\n"
+                    f"**#MendingArmy** | React to enter!"
                     f"Time Remaining: **{time_remaining}**"
                 )
                 await message.edit(embed=embed)
@@ -203,7 +203,7 @@ class GiveawayPlugin(commands.Cog):
         def cancel_check(msg: discord.Message):
             return msg.content == "cancel" or msg.content == f"{ctx.prefix}cancel"
 
-        embed = discord.Embed(colour=0x00FF00)
+        embed = discord.Embed(colour=0x3cbbfa)
 
         await ctx.send(embed=self.generate_embed("What is the giveaway item?"))
         giveaway_item = await self.bot.wait_for("message", check=check)
