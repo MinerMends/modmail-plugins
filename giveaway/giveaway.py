@@ -141,9 +141,10 @@ class GiveawayPlugin(commands.Cog):
                             f"Ended at"
                         )
                         await message.edit(embed=embed)
-                        await channel.send(
-                            f"**#MendingArmy**: Congrats {winners_text}, you just won **{giveaway['item']}**!"
-                        )
+                        embed3.title = f"Winners"
+                        embed3.description = f"{winners_text}"
+                        embed3.add_Field(name='Prize:',value=f"**{giveaway['item']}**"
+                        await channel.send(embed=embed3)
                         try:
                             self.active_giveaways.pop(str(giveaway["message"]))
                             await self._update_db()
@@ -161,8 +162,8 @@ class GiveawayPlugin(commands.Cog):
 
                 embed = message.embeds[0]
                 embed.description = (
-                    f"**#MendingArmy** | React to enter!"
-                    f"Time Remaining: **{time_remaining}**"
+                    f"**#MendingArmy** | React to enter!\n"
+                    f"Ending: **{time_remaining}**"
                 )
                 await message.edit(embed=embed)
                 del channel, guild
