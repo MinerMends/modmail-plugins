@@ -143,7 +143,7 @@ class GiveawayPlugin(commands.Cog):
                         await message.edit(embed=embed)
                         embed3.title = f"Winners"
                         embed3.description = f"{winners_text}"
-                        embed3.add_Field(name='Prize:',value=f"**{giveaway['item']}**"
+                        embed3.add_Field(name='Prize:',value=f"**{giveaway['item']}**")
                         await channel.send(embed=embed3)
                         try:
                             self.active_giveaways.pop(str(giveaway["message"]))
